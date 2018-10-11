@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace JeuDechecsConsole.Tabuleiro
+﻿
+namespace JeuDechecsConsole.tabuleiro
 {
     public class Peca
     {

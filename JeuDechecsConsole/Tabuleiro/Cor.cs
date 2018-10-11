@@ -1,4 +1,4 @@
-﻿namespace JeuDechecsConsole.Tabuleiro
+﻿namespace JeuDechecsConsole.tabuleiro
 {
     public enum Cor
     {
