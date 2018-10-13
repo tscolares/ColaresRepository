@@ -16,5 +16,10 @@ namespace JeuDechecsConsole.tabuleiro
             this.QtdeMovimentos = 0;
 
         }
+
+        public void IncrementarQtdeMovimentos()
+        {
+            QtdeMovimentos++;   
+        }
     }
 }
