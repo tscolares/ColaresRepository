@@ -22,6 +22,11 @@ namespace JeuDechecsConsole.tabuleiro
             QtdeMovimentos++;   
         }
 
+        public void DecrementarQtdeMovimentos()
+        {
+            QtdeMovimentos--;
+        }
+
         public bool ExisteMovimentosPossiveis()
         {
             bool[,] mat = MovimentosPossiveis();
