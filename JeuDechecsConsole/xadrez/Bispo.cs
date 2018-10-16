@@ -16,7 +16,7 @@ namespace JeuDechecsConsole.xadrez
         private bool PodeMover(Posicao pos)
         {
             Peca p = Tab.Peca(pos);
-            return p == null || p.Cor != this.Cor;
+            return p == null || p.Cor != Cor;
         }
 
         public override bool[,] MovimentosPossiveis()
@@ -35,7 +35,7 @@ namespace JeuDechecsConsole.xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna - 1);
             }
 
             //Nordeste
@@ -48,7 +48,7 @@ namespace JeuDechecsConsole.xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna + 1);
             }
 
             //Sudeste
@@ -61,7 +61,7 @@ namespace JeuDechecsConsole.xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna + 1);
             }
 
             //Sudoeste
@@ -74,7 +74,7 @@ namespace JeuDechecsConsole.xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna - 1);
             }
 
             return mat;

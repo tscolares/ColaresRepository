@@ -16,7 +16,7 @@ namespace JeuDechecsConsole.xadrez
         private bool PodeMover(Posicao pos)
         {
             Peca p = Tab.Peca(pos);
-            return p == null || p.Cor != this.Cor;
+            return p == null || p.Cor != Cor;
         }
 
         public override bool[,] MovimentosPossiveis()
@@ -74,8 +74,6 @@ namespace JeuDechecsConsole.xadrez
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
-
-
 
             return mat;
         }

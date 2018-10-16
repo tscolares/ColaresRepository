@@ -16,7 +16,7 @@ namespace JeuDechecsConsole.xadrez
         private bool PodeMover(Posicao pos)
         {
             Peca p = Tab.Peca(pos);
-            return p == null || p.Cor != this.Cor;
+            return p == null || p.Cor != Cor;
         }
 
         public override bool[,] MovimentosPossiveis()
@@ -25,28 +25,18 @@ namespace JeuDechecsConsole.xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            //Acima
-            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
-            while (Tab.PosicaoValida(pos) && PodeMover(pos))
-            {
-                mat[pos.Linha, pos.Coluna] = true;
-                if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != this.Cor)
-                {
-                    break;
-                }
-                pos.Linha = pos.Linha - 1;
-            }
+            //Esquerda
+            pos.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
 
-            //Abaixo
-            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
             while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
+
                 if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != this.Cor)
                 {
                     break;
                 }
-                pos.Linha = pos.Linha + 1;
+                pos.DefinirValores(pos.Linha, pos.Coluna - 1);
             }
 
             //Direita
@@ -58,11 +48,11 @@ namespace JeuDechecsConsole.xadrez
                 {
                     break;
                 }
-                pos.Coluna = pos.Coluna + 1;
+                pos.DefinirValores(pos.Linha, pos.Coluna + 1);
             }
 
-            //Esquerda
-            pos.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
+            //Acima
+            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
             while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
@@ -70,7 +60,19 @@ namespace JeuDechecsConsole.xadrez
                 {
                     break;
                 }
-                pos.Coluna = pos.Coluna - 1;
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna);
+            }
+
+            //Abaixo
+            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
+            {
+                mat[pos.Linha, pos.Coluna] = true;
+                if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != this.Cor)
+                {
+                    break;
+                }
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna);
             }
 
             //Noroeste
@@ -83,7 +85,7 @@ namespace JeuDechecsConsole.xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna - 1);
             }
 
             //Nordeste
@@ -96,7 +98,7 @@ namespace JeuDechecsConsole.xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna + 1);
             }
 
             //Sudeste
@@ -109,7 +111,7 @@ namespace JeuDechecsConsole.xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna + 1);
             }
 
             //Sudoeste
@@ -122,7 +124,7 @@ namespace JeuDechecsConsole.xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna - 1);
             }
 
             return mat;

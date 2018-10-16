@@ -12,6 +12,7 @@ namespace JeuDechecsConsole
             ImprimirTabuleiro(partida.Tab);
             Console.WriteLine();
             ImprimirPecasCapturadas(partida);
+            Console.WriteLine();
             Console.WriteLine("Turno: " + partida.Turno);
 
             if (!partida.Terminada)
