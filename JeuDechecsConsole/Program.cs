@@ -44,14 +44,14 @@ namespace JeuDechecsConsole
                     }
                     
                 }
-                
-                
+
+                Console.Clear();
+                Tela.ImprimirPartida(partida);
             }
             catch (TabuleiroException e)
             {
                 Console.WriteLine(e.Message);
             }
-
 
             Console.ReadLine();
         }
