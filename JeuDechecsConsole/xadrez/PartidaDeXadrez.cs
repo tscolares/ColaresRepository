@@ -74,7 +74,7 @@ namespace JeuDechecsConsole.xadrez
 
             Tab.ColocarPeca(p, origem);
 
-            // #Jogada Especial - Roque Pequeno
+            //#Jogada Especial - Roque Pequeno
             if (p is Rei && destino.Coluna == origem.Coluna + 2)
             {
                 Posicao origemT = new Posicao(origem.Linha, origem.Coluna + 3);
@@ -84,7 +84,7 @@ namespace JeuDechecsConsole.xadrez
                 Tab.ColocarPeca(T, origemT);
             }
 
-            // #Jogada Especial - Roque Grande
+            //#Jogada Especial - Roque Grande
             if (p is Rei && destino.Coluna == origem.Coluna - 2)
             {
                 Posicao origemT = new Posicao(origem.Linha, origem.Coluna - 4);
